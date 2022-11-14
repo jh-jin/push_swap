@@ -6,7 +6,7 @@
 /*   By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 20:26:46 by jjin              #+#    #+#             */
-/*   Updated: 2022/11/14 20:21:21 by jjin             ###   ########.fr       */
+/*   Updated: 2022/11/14 23:47:51 by jjin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,43 @@ typedef struct s_stack
 	t_node	*tail;
 	int		len;
 }t_stack;
+
+int		ft_isdigit(int a);
+int		ft_strlen(const char *str);
+
+void	ft_exit(char *error);
+void	check_input(int argc, char **argv);
+void	ranking(t_stack *a);
+
+void	operation(t_stack *a, t_stack *b, int command);
+void	push(t_stack *from, t_stack *to);
+void	swap(t_stack *s);
+void	rotate(t_stack *s);
+void	reverse_rotate(t_stack *s);
+
+void	push_front(t_stack *s, t_node *new);
+void	push_rear(t_stack *s, t_node *new);
+t_node	*pop_front(t_stack *s);
+t_node	*pop_rear(t_stack *s);
+int		is_sorted(t_stack *a);
+
+void	init(t_stack *a, t_stack *b, int argc, char **argv);
+void	init_s(t_stack *s);
+void	push_all_to_a(t_stack *a, int argc, char **argv);
+void	push_element(t_stack *a, int num);
+
+void	do_algorithm(t_stack *a, t_stack *b);
+void	len_any_sort(t_stack *a, t_stack *b);
+void	make_sand_clock(t_stack *a, t_stack *b);
+void	sort_b_to_a(t_stack *a, t_stack *b);
+
+void	len_three_sort(t_stack *a);
+void	len_four_sort(t_stack *a, t_stack *b);
+void	len_five_sort(t_stack *a, t_stack *b);
+
+int		is_target_in_top_exactly(t_stack *a, int target);
+int		is_target_in_bot_exactly(t_stack *a, int target);
+void	rotate_stack_exactly(t_stack *s, int target, int command);
+void	printf_command(int command);
 
 #endif
