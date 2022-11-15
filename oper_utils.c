@@ -55,7 +55,7 @@ t_node	*pop_front(t_stack *s)
 
 	if (!s || s->len == 0)
 		return (0);
-	tmp = s-> head;
+	tmp = s->head;
 	s->head = s->head->next;
 	tmp->next = 0;
 	tmp->prev = 0;
@@ -71,7 +71,7 @@ t_node	*pop_rear(t_stack *s)
 {
 	t_node	*tmp;
 
-	if (!s || s -> len == 0)
+	if (!s || s->len == 0)
 		return (0);
 	tmp = s->tail;
 	s->tail = s->tail->prev;
@@ -88,18 +88,22 @@ t_node	*pop_rear(t_stack *s)
 	return (tmp);
 }
 
-int	is_sorted(t_stack *s)
+void	printf_command(int command)
 {
-	t_node	*i;
-	t_node	*j;
-
-	i = s->head;
-	while (i->next)
-	{
-		j = i->next;
-		if (i->rank > j->rank)
-			return (0);
-		i = i->next;
-	}
-	return (1);
+	if (command == SA)
+		write(1, "sa\n", 3);
+	if (command == SB)
+		write(1, "sb\n", 3);
+	if (command == PA)
+		write(1, "pa\n", 3);
+	if (command == PB)
+		write(1, "pb\n", 3);
+	if (command == RA)
+		write(1, "ra\n", 3);
+	if (command == RB)
+		write(1, "rb\n", 3);
+	if (command == RRA)
+		write(1, "rra\n", 4);
+	if (command == RRB)
+		write(1, "rrb\n", 4);
 }

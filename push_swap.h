@@ -59,7 +59,7 @@ void	push_front(t_stack *s, t_node *new);
 void	push_rear(t_stack *s, t_node *new);
 t_node	*pop_front(t_stack *s);
 t_node	*pop_rear(t_stack *s);
-int		is_sorted(t_stack *a);
+void	printf_command(int command)
 
 void	init(t_stack *a, t_stack *b, int argc, char **argv);
 void	init_s(t_stack *s);
@@ -75,9 +75,9 @@ void	len_three_sort(t_stack *a);
 void	len_four_sort(t_stack *a, t_stack *b);
 void	len_five_sort(t_stack *a, t_stack *b);
 
-int		is_target_in_top_exactly(t_stack *a, int target);
-int		is_target_in_bot_exactly(t_stack *a, int target);
-void	rotate_stack_exactly(t_stack *s, int target, int command);
-void	printf_command(int command);
+int		cnt_from_top(t_stack *a, int max_rank);
+int 	cnt_from_bot(t_stack *a, int max_rank);
+void 	rotate_max_rank_to_top(t_stack *s, int max_rank, int command);
+int		is_sorted(t_stack *s);
 
 #endif

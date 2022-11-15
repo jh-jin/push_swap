@@ -35,24 +35,24 @@ void	len_any_sort(t_stack *a, t_stack *b)
 void	make_sand_clock(t_stack *a, t_stack *b)
 {
 	int		threshold;
-	int		num;
+	int		clock_len;
 
-	num = 0;
+	clock_len = 0;
 	threshold = 0.000000053 * a->len * a->len + 0.03 * a->len + 14.5;
 	while (a->len)
 	{
-		if (a->head->rank <= num)
+		if (a->head->rank <= clock_len)
 		{
 			operation(a, b, PB);
-			num++;
+			clock_len++;
 		}
-		else if (a->head->rank <= num + threshold)
+		else if (a->head->rank <= clock_len + threshold)
 		{
 			operation(a, b, PB);
 			operation(a, b, RB);
-			num++;
+			clock_len++;
 		}
-		else if (a->tail->rank <= num + threshold)
+		else if (a->tail->rank <= clock_len + threshold)
 			operation(a, b, RRA);
 		else
 			operation(a, b, RA);
@@ -61,23 +61,22 @@ void	make_sand_clock(t_stack *a, t_stack *b)
 
 void	sort_b_to_a(t_stack *a, t_stack *b)
 {
-	int	target;
+	int	max_rank;
 
-	target = b->len - 1;
+	max_rank = b->len - 1;
 	while (b->len > 0)
 	{
-		if (b->head->rank == target)
+		if (b->head->rank == max_rank)
 		{
 			operation(a, b, PA);
-			target--;
+			max_rank--;
 		}
 		else
 		{
-			if (is_target_in_top_exactly(b, target) < \
-			is_target_in_bot_exactly(b, target))
-				rotate_stack_exactly(b, target, RB);
+			if (cnt_from_top(b, max_rank) < cnt_from_bot(b, max_rank))
+				rotate_max_rank_to_top(b, max_rank, RB);
 			else
-				rotate_stack_exactly(b, target, RRB);
+				rotate_max_rank_to_top(b, max_rank, RRB);
 		}
 	}
 }

@@ -20,7 +20,7 @@ AR = ar rc
 
 BONUS = bonus
 
-SRCS = push_swap.c initialization.c operation.c libft.c do_algorithm.c push_swap_utility.c size_any_sort.c
+SRCS = push_swap.c libft.c init.c oper.c oper_utils.c algo.c algo_utils.c hard_sort.c
 
 BONUS_SRCS = push_swap.c
 
