@@ -6,7 +6,7 @@
 /*   By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 20:27:14 by jjin              #+#    #+#             */
-/*   Updated: 2022/11/14 23:37:41 by jjin             ###   ########.fr       */
+/*   Updated: 2022/11/15 21:16:23 by jjin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	check_input(int argc, char **argv)
 	}
 }
 
-void	ranking(t_stack *a)
+void	normalize(t_stack *a)
 {
 	t_node	*i;
 	t_node	*j;
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 		return (0);
 	check_input(argc, argv);
 	init(&a, &b, argc, argv);
-	ranking(&a);
+	normalize(&a);
 	if (is_sorted(&a))
 		ft_exit("");
 	do_algorithm(&a, &b);

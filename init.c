@@ -6,7 +6,7 @@
 /*   By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 19:49:20 by jjin              #+#    #+#             */
-/*   Updated: 2022/11/14 23:47:46 by jjin             ###   ########.fr       */
+/*   Updated: 2022/11/15 21:42:02 by jjin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ long long	ft_atoll(char *str)
 		str++;
 		if ((num > INT_MAX) && (neg == 1))
 			ft_exit("Error\n");
-		if ((num > INT_MAX + 1) && (neg == -1))
+		if ((num > (long long)INT_MAX + (long long)1) && (neg == -1))
 			ft_exit("Error\n");
 	}
 	return (num * neg);
@@ -59,10 +59,10 @@ void	push_all_to_a(t_stack *a, int argc, char **argv)
 	i = 1;
 	j = 0;
 	while (i < argc)
-		push_element(a, ft_atoll(argv[i++]));
+		push_new(a, ft_atoll(argv[i++]));
 }
 
-void	push_element(t_stack *a, int num)
+void	push_new(t_stack *a, int num)
 {
 	t_node	*new;
 
@@ -71,17 +71,7 @@ void	push_element(t_stack *a, int num)
 		ft_exit("Error\n");
 	new->rank = 0;
 	new->val = num;
-	(a->len)++;
-	if (a->head == NULL)
-	{
-		a->head = new;
-		a->tail = new;
-		new->prev = NULL;
-		new->next = NULL;
-		return ;
-	}
-	a->tail->next = new;
-	new->prev = a->tail;
+	new->prev = NULL;
 	new->next = NULL;
-	a->tail = new;
+	push_rear(a, new);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jojoo <jojoo@student.42.fr>                +#+  +:+       +#+         #
+#    By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/04 20:46:40 by jojoo             #+#    #+#              #
-#    Updated: 2022/11/08 05:48:59 by jojoo            ###   ########.fr        #
+#    Created: 2022/11/04 20:46:40 by jjin	           #+#    #+#              #
+#    Updated: 2022/11/15 20:43:57 by jjin             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,9 @@ CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 
-AR = ar rc
-
 BONUS = bonus
 
-SRCS = push_swap.c libft.c init.c oper.c oper_utils.c algo.c algo_utils.c hard_sort.c
+SRCS = main.c libft.c init.c oper.c oper_utils.c algo.c algo_utils.c hard_sort.c
 
 BONUS_SRCS = push_swap.c
 
@@ -35,11 +33,9 @@ all : $(NAME)
 bonus : $(BONUS)
 
 $(NAME) : $(OBJ)
-	$(AR) $(NAME) $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 $(BONUS) : $(BONUS_OBJ)
-	$(AR) $(BONUS) $(BONUS_OBJ)
 	$(CC) $(CFLAGS) -o $(BONUS) $(BONUS_OBJ)
 
 clean :

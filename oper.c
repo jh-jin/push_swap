@@ -6,7 +6,7 @@
 /*   By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 20:27:12 by jjin              #+#    #+#             */
-/*   Updated: 2022/11/14 20:27:17 by jjin             ###   ########.fr       */
+/*   Updated: 2022/11/15 21:20:54 by jjin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	operation(t_stack *a, t_stack *b, int command)
 	if (command == SB)
 		swap(b);
 	if (command == PA)
-		push(a, b);
-	if (command == PB)
 		push(b, a);
+	if (command == PB)
+		push(a, b);
 	if (command == RA)
 		rotate(a);
 	if (command == RB)
