@@ -5,57 +5,45 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/04 20:46:40 by jjin	           #+#    #+#              #
-#    Updated: 2022/11/15 20:43:57 by jjin             ###   ########.fr        #
+#    Created: 2022/11/15 22:23:21 by jjin              #+#    #+#              #
+#    Updated: 2022/11/15 23:38:38 by jjin             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME = ../checker
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-DIR = ./push_swap_mandatory
+B_SRCS = 	init.c \
+			libft.c \
+			main_bonus.c \
+			oper.c \
+			oper_double.c\
+			oper_utils.c \
+			get_next_line.c \
+			get_next_line_utils.c\
+			checker.c
 
-SRCS = $(DIR)/main.c \
-		$(DIR)/libft.c \
-		$(DIR)/init.c \
-		$(DIR)/oper.c \
-		$(DIR)/oper_utils.c \
-		$(DIR)/algo.c \
-		$(DIR)/algo_utils.c \
-		$(DIR)/hard_sort.c \
+B_OBJS = $(B_SRCS:.c=.o)
 
-OBJS= $(SRCS:.c=.o)
-
-RM= rm -rf
+RM = rm -rf
 
 %.o : %.c
 	@$(CC) $(CFLAGS) -o $@ -c $^
-
 all : $(NAME)
 
-ifdef BONUS
-	@make -C ./push_swap_bonus/ all
-else
-endif
-
-$(NAME) : $(OBJS)
+$(NAME) : $(B_OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
-bonus :
-	@make BONUS=1
-
 clean:
-	@make -C ./push_swap_bonus clean
-	$(RM) $(OBJS)
+	$(RM) $(B_OBJS)
 
 fclean: clean
-	@make -C ./push_swap_bonus fclean
 	$(RM) $(NAME)
 
 re:
 	make fclean
 	make all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
