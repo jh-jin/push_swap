@@ -6,7 +6,7 @@
 /*   By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 20:26:46 by jjin              #+#    #+#             */
-/*   Updated: 2022/11/15 23:48:06 by jjin             ###   ########.fr       */
+/*   Updated: 2022/11/16 10:30:30 by jjin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 # define INT_MAX 2147483647
 
@@ -34,6 +35,10 @@ typedef struct s_stack
 	t_node	*tail;
 	int		len;
 }t_stack;
+
+void		ft_exit(char *error);
+void		check_input(int argc, char **argv);
+void		normalize(t_stack *a);
 
 void		checker(t_stack *a, t_stack *b);
 void		parse_operation(t_stack *a, t_stack *b, char *s);
@@ -64,6 +69,11 @@ int			ft_strlen(const char *str);
 int			ft_strlen(const char *str);
 void		check_input(int argc, char **argv);
 void		normalize(t_stack *a);
+
+void		push(t_stack *from, t_stack *to);
+void		swap(t_stack *s);
+void		rotate(t_stack *s);
+void		reverse_rotate(t_stack *s);
 
 void		swap_double(t_stack *a, t_stack *b);
 void		rotate_double(t_stack *a, t_stack *b);

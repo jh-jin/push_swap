@@ -1,8 +1,0 @@
-{
-	"files.associations": {
-		"climits": "cpp",
-		"sstream": "cpp",
-		"streambuf": "cpp",
-		"ios": "c"
-	}
-}

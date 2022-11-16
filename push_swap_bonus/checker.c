@@ -6,7 +6,7 @@
 /*   By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 22:29:51 by jjin              #+#    #+#             */
-/*   Updated: 2022/11/15 23:26:04 by jjin             ###   ########.fr       */
+/*   Updated: 2022/11/16 10:38:48 by jjin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ void	parse_operation(t_stack *a, t_stack *b, char *s)
 		rotate_double(a, b);
 	else if (ft_strcmp(s, "rrr\n"))
 		reverse_rotate_double(a, b);
-	ft_exit("Error\n");
+	else
+		ft_exit("Error\n");
 }
 
 int	ft_strcmp(char *s, char *com)

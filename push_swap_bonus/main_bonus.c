@@ -6,7 +6,7 @@
 /*   By: jjin <jjin@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 20:27:14 by jjin              #+#    #+#             */
-/*   Updated: 2022/11/15 22:57:10 by jjin             ###   ########.fr       */
+/*   Updated: 2022/11/16 10:25:31 by jjin             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,6 @@ int	main(int argc, char **argv)
 	normalize(&a);
 	if (is_sorted(&a))
 		ft_exit("");
-	checker(a, b);
+	checker(&a, &b);
 	exit(0);
 }
